@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="بحث, تلخيص, تحويل ملفات, ذكاء اصطناعي, مراجع, PDF, Word">
+<meta name="description" content="تطبيق بحثي لكل أدوات الطلاب: تلخيص، تحويل ملفات، ذكاء اصطناعي، تدقيق لغوي، توليد مراجع">
+<title>📖 بحثي</title>
+<style>
+body { font-family: Arial; margin:0; padding:0; background:#f5f5f5; }
+header { background:#1e90ff; color:white; padding:20px; text-align:center; font-size:28px; }
+button { width:80%; margin:10px auto; display:block; padding:15px; font-size:18px; border-radius:12px; border:none; color:white; background:#1e90ff; cursor:pointer; }
+button:hover { background:#1c86ee; }
+section { padding:20px; }
+.footer { text-align:center; font-size:14px; color:#555; padding:10px; }
+.ads { margin:20px auto; text-align:center; border:1px dashed #aaa; padding:10px; }
+.content-page { display:none; padding:20px; }
+textarea, input[type=file] { width:100%; margin:10px 0; padding:10px; font-size:16px; }
+</style>
+</head>
+<body>
+<header>📖 بحثي</header>
+
+<section id="main-menu">
+<button onclick="openTool('summarize')">تلخيص النصوص</button>
+<button onclick="openTool('plagiarism')">فحص الانتحال</button>
+<button onclick="openTool('grammar')">تدقيق لغوي</button>
+<button onclick="openTool('references')">توليد المراجع</button>
+<button onclick="openTool('convert')">تحويل الملفات</button>
+<button onclick="openTool('aiText')">نصوص جاهزة AI</button>
+<button onclick="openTool('aiCover')">تصميم أغلفة AI</button>
+<div class="ads">إعلان AdSense هنا</div>
+</section>
+
+<!-- الصفحات الخاصة بكل أداة -->
+<div id="summarize" class="content-page">
+<h2>تلخيص النصوص</h2>
+<textarea id="summarizeText" rows="6"></textarea>
+<button onclick="summarize()">ابدأ التلخيص</button>
+<button onclick="goBack()">رجوع</button>
+</div>
+
+<div id="plagiarism" class="content-page">
+<h2>فحص الانتحال</h2>
+<textarea id="plagiarismText" rows="6"></textarea>
+<button onclick="checkPlagiarism()">ابدأ الفحص</button>
+<button onclick="goBack()">رجوع</button>
+</div>
+
+<div id="grammar" class="content-page">
+<h2>تدقيق لغوي</h2>
+<textarea id="grammarText" rows="6"></textarea>
+<button onclick="checkGrammar()">ابدأ التدقيق</button>
+<button onclick="goBack()">رجوع</button>
+</div>
+
+<div id="references" class="content-page">
+<h2>توليد المراجع</h2>
+<textarea id="referencesText" rows="6"></textarea>
+<button onclick="generateReferences()">ابدأ التوليد</button>
+<button onclick="goBack()">رجوع</button>
+</div>
+
+<div id="convert" class="content-page">
+<h2>تحويل الملفات</h2>
+<input type="file" id="fileInput">
+<button onclick="convertFile()">ابدأ التحويل</button>
+<button onclick="goBack()">رجوع</button>
+</div>
+
+<div id="aiText" class="content-page">
+<h2>نصوص جاهزة AI</h2>
+<textarea id="aiTextInput" rows="6"></textarea>
+<button onclick="generateAIText()">ابدأ التوليد</button>
+<button onclick="goBack()">رجوع</button>
+</div>
+
+<div id="aiCover" class="content-page">
+<h2>تصميم أغلفة AI</h2>
+<button onclick="generateAICover()">ابدأ التصميم</button>
+<button onclick="goBack()">رجوع</button>
+</div>
+
+<div class="footer">
+من نحن | الدعم | سياسة الخصوصية
+</div>
+
+<script>
+// التنقل بين الصفحات
+function openTool(id) {
+  document.getElementById('main-menu').style.display = 'none';
+  document.getElementById(id).style.display = 'block';
+}
+function goBack() {
+  let pages = document.getElementsByClassName('content-page');
+  for (let i=0;i<pages.length;i++) { pages[i].style.display = 'none'; }
+  document.getElementById('main-menu').style.display = 'block';
+}
+
+// وظائف الأدوات - جاهزة للربط مع API لاحقاً
+function summarize() {
+  let text = document.getElementById('summarizeText').value;
+  alert('تلخيص النصوص (ضع API هنا): ' + text);
+}
+
+function checkPlagiarism() {
+  let text = document.getElementById('plagiarismText').value;
+  alert('فحص الانتحال (ضع API هنا): ' + text);
+}
+
+function checkGrammar() {
+  let text = document.getElementById('grammarText').value;
+  alert('تدقيق لغوي (ضع API هنا): ' + text);
+}
+
+function generateReferences() {
+  let text = document.getElementById('referencesText').value;
+  alert('توليد المراجع (ضع API هنا): ' + text);
+}
+
+function convertFile() {
+  let file = document.getElementById('fileInput').files[0];
+  if(!file) { alert('اختر ملف للتحويل'); return; }
+  alert('تحويل الملفات (ضع API هنا): ' + file.name);
+}
+
+function generateAIText() {
+  let text = document.getElementById('aiTextInput').value;
+  alert('توليد نصوص AI (ضع API هنا): ' + text);
+}
+
+function generateAICover() {
+  alert('تصميم أغلفة AI (ضع API هنا)');
+}
+</script>
+
+</body>
+</html>
